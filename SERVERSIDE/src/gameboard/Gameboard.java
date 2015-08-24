@@ -1,6 +1,7 @@
 package gameboard;
 
 import java.util.UUID;
+import player.Player;
 
 public class Gameboard {
 	private String ID;

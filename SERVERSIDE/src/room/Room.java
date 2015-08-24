@@ -1,8 +1,9 @@
+package room;
 import java.text.SimpleDateFormat;
 import java.util.UUID;
 import java.sql.Date;
 
-public class room 
+public class Room 
 {
 	private String ID;
 	private int maxPlayers;
