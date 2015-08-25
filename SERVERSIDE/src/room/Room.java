@@ -3,7 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.UUID;
 import java.sql.Date;
 
-public class Room 
+public class Room
 {
 	private String ID;
 	private int maxPlayers;
@@ -15,9 +15,9 @@ public class Room
 	private String boardID;
 	private int status;
 	
-	public Room(String roomName,String ownerID,int minPlayers , int maxPlayers )
+	public Room(String roomID, String roomName,String ownerID,int minPlayers , int maxPlayers )
 	{
-		this.ID = UUID.randomUUID().toString();
+		this.ID = roomID;
 		this.roomName = roomName;
 		this.ownerID = ownerID ;
 		this.minPlayers = minPlayers;
