@@ -3,11 +3,23 @@ import java.text.SimpleDateFormat;
 import java.util.UUID;
 import java.sql.Date;
 
+<<<<<<< HEAD
+<<<<<<< HEAD:SERVERSIDE/src/room/Room.java
+<<<<<<< HEAD:SERVERSIDE/src/room/Room.java
+public class Room
+=======
+public class Room 
+>>>>>>> 49dda789f37c7759fcd4bd6641b005bbf2a2ea61:SERVERSIDE/src/Room/room.java
+=======
+public class Room 
+>>>>>>> 49dda789f37c7759fcd4bd6641b005bbf2a2ea61:SERVERSIDE/src/Room/room.java
+=======
 <<<<<<< HEAD:SERVERSIDE/src/Room/room.java
 public class Room 
 =======
 public class Room
 >>>>>>> d70ecd7645c9991c02ff64b992a38125b1f362bd:SERVERSIDE/src/room/Room.java
+>>>>>>> 0b0ba82c1267bdb63a6ff8afcaf33833424d7278
 {
 	private String ID;
 	private int maxPlayers;
@@ -18,6 +30,18 @@ public class Room
 	private String ownerID;
 	private String boardID;
 	private int status;
+<<<<<<< HEAD
+<<<<<<< HEAD:SERVERSIDE/src/room/Room.java
+<<<<<<< HEAD:SERVERSIDE/src/room/Room.java
+	
+	public Room(String roomID, String roomName,String ownerID,int minPlayers , int maxPlayers )
+=======
+=======
+>>>>>>> 49dda789f37c7759fcd4bd6641b005bbf2a2ea61:SERVERSIDE/src/Room/room.java
+	private Player player[] ;
+	public Room(String roomName,String ownerID,int minPlayers , int maxPlayers )
+>>>>>>> 49dda789f37c7759fcd4bd6641b005bbf2a2ea61:SERVERSIDE/src/Room/room.java
+=======
 <<<<<<< HEAD:SERVERSIDE/src/Room/room.java
 	private Player player[] ;
 	public Room(String roomName,String ownerID,int minPlayers , int maxPlayers )
@@ -25,6 +49,7 @@ public class Room
 	
 	public Room(String roomID, String roomName,String ownerID,int minPlayers , int maxPlayers )
 >>>>>>> d70ecd7645c9991c02ff64b992a38125b1f362bd:SERVERSIDE/src/room/Room.java
+>>>>>>> 0b0ba82c1267bdb63a6ff8afcaf33833424d7278
 	{
 		this.ID = roomID;
 		this.roomName = roomName;
