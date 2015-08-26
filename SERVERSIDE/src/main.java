@@ -1,39 +1,45 @@
+import player.*;
+import room.*;
+import gameboard.*;
+
+import java.util.HashMap;
+import java.util.UUID;
+
 import com.corundumstudio.socketio.AckCallback;
 import com.corundumstudio.socketio.AckRequest;
 import com.corundumstudio.socketio.Configuration;
 import com.corundumstudio.socketio.SocketIOClient;
 import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.VoidAckCallback;
-import com.corundumstudio.socketio.demo.ChatObject;
 import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DataListener;
 import com.corundumstudio.socketio.listener.DisconnectListener;
 
 public class main {
-
+	private static HashMap<String, Player> players = new HashMap<String, Player>();
+	private static HashMap<String, Room> rooms = new HashMap<String, Room>();
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Configuration config = new Configuration();
 		config.setHostname("localhost");
-		config.setPort(3000);
+		config.setPort(301);
 		
 		final SocketIOServer server = new SocketIOServer(config);
 
-		/*server.addMessageListener(new DataListener<String>() {
-	        public void onData(SocketIOClient client, String message, AckRequest ackRequest) {
-	            
-	        }
-	    });*/
-
-	    /*server.addEventListener("someevent", SomeClass.class, new DataListener<SomeClass>() {
-	        public void onData(SocketIOClient client, Object data, AckRequest ackRequest) {
-	            
-	        }
-	    });*/
-
 	    server.addConnectListener(new ConnectListener() {
 	        public void onConnect(SocketIOClient client) {
-	            System.out.println("Client connected");
+	        	String ID = client.getSessionId().toString();
+	        	players.put(ID, new Player(ID, true));
+	        	
+	            System.out.println("Client connected with ID "+ID);
+	            
+	            String RoomID = UUID.randomUUID().toString();
+	            rooms.put(RoomID, new Room(RoomID, "Something", ID, 2, 4));
+	            client.joinRoom(RoomID);
+	            	            
+	            // Sends back an event giving the user their ID
+	            client.sendEvent("setup", ID);
 	            server.getBroadcastOperations().sendEvent("newconnect");
 	        }
 	    });
@@ -45,7 +51,7 @@ public class main {
 	        }
 	    });
 
-        server.addEventListener("chatevent", ChatObject.class, new DataListener<ChatObject>() {
+        /*server.addEventListener("chatevent", ChatObject.class, new DataListener<ChatObject>() {
             @Override
             public void onData(SocketIOClient client, ChatObject data, AckRequest ackRequest) {
                 // broadcast messages to all clients
@@ -53,20 +59,8 @@ public class main {
                 server.getBroadcastOperations().sendEvent("globalevent", data);
                 
             }
-        });
-	    // Don't forget to include type field on javascript side,
-	    // it named '@class' by default and should equals to full class name.
-	    //
-	    // TIP: you can customize type field name via Configuration.jsonTypeFieldName property.
+        });*/
 
-	    /*server.addJsonObjectListener(SomeClass.class, new DataListener<SomeClass>() {
-	        public void onData(SocketIOClient client, SomeClass data, AckRequest ackRequest) {
-
-	            // send object to socket.io client
-	            SampleObject obj = new SampleObject();
-	            client.sendJsonObject(obj);
-	        }
-	    });*/
         server.start();
 	    System.out.println("Started...");
 	}

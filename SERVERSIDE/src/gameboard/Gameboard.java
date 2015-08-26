@@ -33,7 +33,7 @@ public class Gameboard {
 	{
 		if(getDesign()[x][y] != 'y')
 		{
-			design[x][y] = p.getBoardID();
+			design[x][y] = (char)p.getBoardID();
 			return true;
 		}
 		return false;
