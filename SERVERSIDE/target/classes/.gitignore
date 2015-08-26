@@ -1,6 +1,12 @@
+/gameboard/
+/player/
 /main$1.class
 /main$2.class
 /main$3.class
+<<<<<<< HEAD
 /com/
 /gameboard/
 /Room/
+=======
+/room/
+>>>>>>> d70ecd7645c9991c02ff64b992a38125b1f362bd

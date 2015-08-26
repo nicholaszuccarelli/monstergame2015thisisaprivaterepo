@@ -6,43 +6,66 @@ import java.util.UUID;
 public class Player {
 	
 	private String name;
-	private Boolean type;
+	private boolean type;
 	private String ID;
 	private int status;
 	private String roomID;
 	private int score;
 	private int boardID;
 	private int position[];
+	private boolean isInit = false;
 
-	public Player(String name, Boolean type)
+	public Player(String ID, boolean type)
 	{
-		this.name = name;
+		this.name = "";
 		this.type = type;
-		this.ID = UUID.randomUUID().toString();
+		this.ID = ID;
 		this.roomID = "";
 		this.boardID = 0;
 		this.position = new int[2];		
 		this.score = 0;
 	}
 	
-	public String getName()
+	public boolean checkInit()
 	{
-		return name;
+		if(isInit)
+		{
+			return true;
+		}
+		return false;
 	}
 	
-	public Boolean getType()
+	public void setInit()
 	{
-		return type;
+		if(!isInit)
+		{
+			this.isInit = true;
+		}
+	}
+	
+	public String getName()
+	{
+		return this.name;
+	}
+	
+	public void setName(String str)
+	{
+		this.name = str;
+	}
+	
+	public boolean getType()
+	{
+		return this.type;
 	}
 	
 	public String getID()
 	{
-		return ID;
+		return this.ID;
 	}
 	
 	public int getStatus()
 	{
-		return status;
+		return this.status;
 	}
 	
 	public void setStatus(int status)
@@ -52,7 +75,7 @@ public class Player {
 	
 	public String getRoomID()
 	{
-		return roomID;
+		return this.roomID;
 	}
 	
 	public void setRoomID(String roomID)
@@ -67,7 +90,7 @@ public class Player {
 	
 	public int getBoardID()
 	{
-		return boardID;
+		return this.boardID;
 	}
 	
 	public void setBoardID(int boardID)
@@ -77,7 +100,7 @@ public class Player {
 	
 	public int[] getPosition()
 	{
-		return position;
+		return this.position;
 	}
 	
 	public void setPosition(int x, int y)
