@@ -1,8 +1,13 @@
+package room;
 import java.text.SimpleDateFormat;
 import java.util.UUID;
 import java.sql.Date;
 
+<<<<<<< HEAD:SERVERSIDE/src/Room/room.java
 public class Room 
+=======
+public class Room
+>>>>>>> d70ecd7645c9991c02ff64b992a38125b1f362bd:SERVERSIDE/src/room/Room.java
 {
 	private String ID;
 	private int maxPlayers;
@@ -13,10 +18,15 @@ public class Room
 	private String ownerID;
 	private String boardID;
 	private int status;
+<<<<<<< HEAD:SERVERSIDE/src/Room/room.java
 	private Player player[] ;
 	public Room(String roomName,String ownerID,int minPlayers , int maxPlayers )
+=======
+	
+	public Room(String roomID, String roomName,String ownerID,int minPlayers , int maxPlayers )
+>>>>>>> d70ecd7645c9991c02ff64b992a38125b1f362bd:SERVERSIDE/src/room/Room.java
 	{
-		this.ID = UUID.randomUUID().toString();
+		this.ID = roomID;
 		this.roomName = roomName;
 		this.ownerID = ownerID ;
 		this.minPlayers = minPlayers;
