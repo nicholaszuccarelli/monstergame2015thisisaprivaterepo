@@ -37,7 +37,11 @@ public class main {
 	            String RoomID = UUID.randomUUID().toString();
 	            rooms.put(RoomID, new Room(RoomID, "Something", ID, 2, 4));
 	            client.joinRoom(RoomID);
+<<<<<<< HEAD
 	            	            
+=======
+	            
+>>>>>>> 0b0ba82c1267bdb63a6ff8afcaf33833424d7278
 	            // Sends back an event giving the user their ID
 	            client.sendEvent("setup", ID);
 	            server.getBroadcastOperations().sendEvent("newconnect");
